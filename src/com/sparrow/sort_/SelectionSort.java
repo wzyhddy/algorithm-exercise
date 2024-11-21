@@ -26,6 +26,21 @@ public class SelectionSort{
     }
   }
 
+  /**
+   * 循环不变量: arr[i...n)已排序，arr[0..i)未排序
+   */
+  public static <E extends Comparable<E>> void sort2(E[] arr) {
+    for (int i = arr.length - 1; i >= 0; i--) {
+      int maxIndex = i;
+      for (int j = i; j >= 0; j--) {
+        if (arr[j].compareTo(arr[maxIndex]) > 0) {
+          maxIndex = j;
+        }
+      }
+      swap(arr, i, maxIndex);
+    }
+  }
+
   private static <E> void swap(E[] arr, int i, int j) {
     E temp = arr[i];
     arr[i] = arr[j];
