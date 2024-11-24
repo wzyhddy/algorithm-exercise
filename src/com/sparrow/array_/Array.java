@@ -13,7 +13,7 @@ public class Array<E> {
   private int size;
 
   public Array(int capacity) {
-    data = (E[])new Object[capacity];
+    data = (E[]) new Object[capacity];
     size = 0;
   }
 
@@ -32,7 +32,7 @@ public class Array<E> {
 
   public int find(E e) {
     for (int i = 0; i < size; i++) {
-      if(data[i] == e) {
+      if (data[i] == e) {
         return i;
       }
     }
@@ -63,7 +63,7 @@ public class Array<E> {
     return remove(size - 1);
   }
 
-  public void removeElement(E e){
+  public void removeElement(E e) {
     int index = find(e);
     if (index != -1) {
       remove(index);
@@ -90,14 +90,22 @@ public class Array<E> {
     add(0, e);
   }
 
-  E get(int index) {
+  public E get(int index) {
     if (index < 0 || index >= size) {
       throw new IllegalArgumentException("Get failed. Index is illegal.");
     }
     return data[index];
   }
 
-  void set(int index,E e) {
+  public E getLast() {
+    return get(size - 1);
+  }
+
+  public E getFisrt() {
+    return get(0);
+  }
+
+  void set(int index, E e) {
     if (index < 0 || index >= size) {
       throw new IllegalArgumentException("Get failed. Index is illegal.");
     }
